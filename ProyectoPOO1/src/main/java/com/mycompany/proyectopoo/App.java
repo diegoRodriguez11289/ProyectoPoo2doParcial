@@ -12,6 +12,9 @@ import java.io.IOException;
  * JavaFX App
  */
 public class App extends Application {
+    public static String rutciudades = "com/mycompany/proyectopoo/files/ciudades.csv";
+    public static String rutDuenoscsv = "com/mycompany/proyectopoo/files/duenosP4.csv";
+    public static String rutDuenos = "Archivos/Duenos.ser";
 
     private static Scene scene;
 
@@ -26,10 +29,7 @@ public class App extends Application {
         scene.setRoot(loadFXML(fxml));
     }
     
-    public static void setRoot(FXMLLoader fxmlLoader) throws IOException {
-        Parent root = fxmlLoader.load();
-        scene.setRoot(root);
-    }
+    
     
 
     private static Parent loadFXML(String fxml) throws IOException {
@@ -45,5 +45,12 @@ public class App extends Application {
     public static void main(String[] args) {
         launch();
     }
+    
+    static void changeRoot(Parent rootNode) {
+        scene.setRoot(rootNode);
+    }
+    
+    
+    
 
 }

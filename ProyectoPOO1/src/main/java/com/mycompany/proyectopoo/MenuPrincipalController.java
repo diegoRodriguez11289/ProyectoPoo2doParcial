@@ -41,24 +41,29 @@ public class MenuPrincipalController  {
     
     @FXML
     private void switchToAdministrarConcursos(ActionEvent event) throws IOException {
-        
+        App.setRoot("AdministrarConcursos");
+        /*
         Parent menuDueñosParent =  FXMLLoader.load(getClass().getResource("AdministrarConcursos.fxml"));
         Scene menuDueño = new Scene(menuDueñosParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(menuDueño);
         window.show();
+        */
+
     }
     
     
     
    @FXML
     private void switchToAdministrarDueños(ActionEvent event) throws IOException {
-        
-        Parent menuDueñosParent =  FXMLLoader.load(getClass().getResource("AdministrarDueños.fxml"));
+        App.setRoot("AdministrarDuenos");
+        /*
+        Parent menuDueñosParent =  FXMLLoader.load(getClass().getResource("AdministrarDuenos.fxml"));
         Scene menuDueño = new Scene(menuDueñosParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(menuDueño);
         window.show();
+        */
     
         
         
@@ -67,13 +72,14 @@ public class MenuPrincipalController  {
     
     @FXML
     public void switchToAdministrarMascotas(ActionEvent event) throws IOException {
-        
+        App.setRoot("AdministrarMascotas");
+        /*
         Parent menuDueñosParent =  FXMLLoader.load(getClass().getResource("AdministrarMascotas.fxml"));
         Scene menuDueño = new Scene(menuDueñosParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(menuDueño);
         window.show();
-        
+        */
         
         
     }

@@ -34,11 +34,14 @@ public class AñadirPremiosController implements Initializable {
     
     @FXML
     private void switchToCrearConcurso(ActionEvent event) throws IOException {
+        App.setRoot("CrearConcursos");
+        /*
         Parent menuParent =  FXMLLoader.load(getClass().getResource("CrearConcursos.fxml"));
         Scene menu = new Scene(menuParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(menu);
         window.show();
+        */
     }
     
 }

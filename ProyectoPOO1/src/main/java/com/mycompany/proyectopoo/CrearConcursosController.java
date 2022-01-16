@@ -34,21 +34,26 @@ public class CrearConcursosController implements Initializable {
     
     @FXML
     public void switchToAdministrarConcurso(ActionEvent event) throws IOException {
-        
+        App.setRoot("AdministrarConcursos");
+        /*
         Parent menuDueñosParent =  FXMLLoader.load(getClass().getResource("AdministrarConcursos.fxml"));
         Scene menuDueño = new Scene(menuDueñosParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(menuDueño);
         window.show();
+        */
     }
     
     @FXML
     private void switchToAñadirPremio(ActionEvent event) throws IOException {
+        App.setRoot("AnadirPremios");
+        /*
         Parent menuParent =  FXMLLoader.load(getClass().getResource("AñadirPremios.fxml"));
         Scene menu = new Scene(menuParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(menu);
         window.show();
+        */
     }
     
 }
