@@ -72,7 +72,7 @@ public class EditarDueñoController implements Initializable {
         cmbCiudad.setValue(e.getCiudad());
         txtCod.setEditable(false);
         txtCod.setText(e.getCi());
-        
+        txtCod.setVisible(false);
         
     }
     

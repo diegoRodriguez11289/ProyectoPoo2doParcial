@@ -83,5 +83,20 @@ public class MenuPrincipalController  {
         
         
     }
+    
+    @FXML
+    private void switchToAdministrarAuspiciantes(ActionEvent event) throws IOException {
+        App.setRoot("AdministrarAuspiciantes");
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
     

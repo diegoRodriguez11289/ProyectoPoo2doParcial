@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -180,33 +182,37 @@ public class AdministrarDueñosController implements Initializable {
     }
     
     private void eliminarDueno(DueñoDeMascota e) {
-        tvDueños.getItems().removeAll(e);
-        ArrayList<DueñoDeMascota> dueños = DueñoDeMascota.cargarDuenos2(App.rutDuenos);//cargar la lista del archivo
-        System.out.println("Guardando sus cambios");
-        for (int x = 0; x < dueños.size(); x++) {
-            if (dueños.get(x).getCi().equals(e.getCi())){
-                dueños.remove(x);
+                    //mostrar informacion
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation Dialog");
+            alert.setHeaderText("Eliminar datos");
+            alert.setContentText("¿Esta seguro de eliminar este dueño ?");
+
+            Optional <ButtonType> action = alert.showAndWait();
+            if (action.get()== ButtonType.OK){
+                tvDueños.getItems().removeAll(e);
+                ArrayList<DueñoDeMascota> dueños = DueñoDeMascota.cargarDuenos2(App.rutDuenos);//cargar la lista del archivo
+                System.out.println("Guardando sus cambios");
+                for (int x = 0; x < dueños.size(); x++) {
+                    if (dueños.get(x).getCi().equals(e.getCi())){
+                     dueños.remove(x);
                 
-            }
+                    }
                
-        }
+                }
         
-         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(App.rutDuenos))){
-            out.writeObject(dueños);
-            out.flush();
+               try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(App.rutDuenos))){
+               out.writeObject(dueños);
+               out.flush();
+               App.setRoot("AdministrarDuenos");
 
-            //mostrar informacion
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Information Dialog");
-            alert.setHeaderText("Resultado de la operación");
-            alert.setContentText("Dueño eliminado dela base de datos");
-
-            alert.showAndWait();
-            App.setRoot("AdministrarDuenos");
-
-        } catch (IOException ex) {
-            System.out.println("IOException:" + ex.getMessage());
-        } 
+               } catch (IOException ex) {
+                 System.out.println("IOException:" + ex.getMessage());
+               } 
+            
+            
+            }
+        
 
         
     }

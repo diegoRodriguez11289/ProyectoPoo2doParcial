@@ -34,7 +34,7 @@ public class AgregarMascotaController implements Initializable {
     
     @FXML
     private void switchToAdministrar(ActionEvent event) throws IOException {
-        App.setRoot("AdministrarDuenos");
+        App.setRoot("AdministrarMascotas");
         /*
         Parent menuParent =  FXMLLoader.load(getClass().getResource("AdministrarMascotas.fxml"));
         Scene menu = new Scene(menuParent);
