@@ -40,6 +40,12 @@ public class DueñoDeMascota  extends Persona implements Serializable{
     apellidos=a;
     
   }
+     
+  public DueñoDeMascota(String ci){
+    this.ci=ci;
+    
+  }
+  
   
   
   
