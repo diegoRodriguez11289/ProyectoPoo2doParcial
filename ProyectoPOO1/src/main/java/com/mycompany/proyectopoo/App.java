@@ -18,6 +18,9 @@ public class App extends Application {
     public static String rutDuenos = "Archivos/Duenos.ser";
     public static String rutAuspiciantes = "Archivos/Auspiciantes.ser";
     public static String rutAuspiciantescsv = "com/mycompany/proyectopoo/files/auspiciantes.csv";
+    public static String rutmascotascsv = "com/mycompany/proyectopoo/files/mascotas.csv";
+    public static String rutMascotas = "Archivos/Mascotas.ser";
+
 
     private static Scene scene;
 
