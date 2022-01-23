@@ -43,6 +43,34 @@ public class Mascota{
         duenoNombre = dn;
         codigo = cod;
     }
+     
+       
+     public Mascota(String cod, String n , String na, TipoAnimal t, String dn, String f) {
+        nombre = n;
+        tipo = t;
+        duenoNombre = dn;
+        codigo = cod;
+        foto=f;
+    }
+     
+       public Mascota(String n, String dn, String r, TipoAnimal t) {
+        nombre = n;
+        tipo = t;
+        raza = r;
+        duenoNombre = dn;
+  
+    }
+       
+       public Mascota(String n, String dn, String r,String na, TipoAnimal t,String cod) {
+        nombre = n;
+        tipo = t;
+        raza = r;
+        duenoNombre = dn;
+        nacimiento = na;
+        codigo = cod;
+  
+    }
+    
 
     public String getCodigo() {
         return codigo;
@@ -83,6 +111,10 @@ public class Mascota{
 
     public void setTipo(TipoAnimal t) {
         tipo = t;
+    }
+    
+    public void setDuenoNombre(String dn) {
+        duenoNombre = dn;
     }
 
     public void setRaza(String r) {
@@ -132,7 +164,7 @@ public class Mascota{
                     int i =0;
                     for (DueñoDeMascota d: dueno){
                         if (info[6].equals(d.getCi())){
-                            mascotas.add(new Mascota(info[0].trim(), info[1].trim(), tip, d.getNombresApellidos()));
+                            mascotas.add(new Mascota(info[0].trim(), info[1].trim(), info[4].trim() , tip, d.getNombresApellidos(),info[5].trim()));
                         }
                     } 
 
