@@ -47,5 +47,6 @@
          </children>
       </GridPane>
       <Button mnemonicParsing="false" onAction="#switchToAdministrarAuspiciantes" text="Administrar Auspiciantes" />
+      <Button mnemonicParsing="false" onAction="#switchToAdministrarCiudades" text="Administrar Ciudades" />
    </children>
 </VBox>
