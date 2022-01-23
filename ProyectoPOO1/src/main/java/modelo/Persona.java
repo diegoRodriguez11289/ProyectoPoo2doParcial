@@ -66,8 +66,9 @@ public  class Persona implements Serializable{
     ciudad=ciu;
   }
 
+  @Override
   public String toString(){
-    return "nombres: "+nombre+", Direccion:"+direccion+", telefono: "+telefono+ciudad.toString()+", email: "+email;
+    return nombre;
   }
 
   

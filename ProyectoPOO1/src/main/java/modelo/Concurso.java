@@ -143,7 +143,7 @@ public Concurso(String nombre, String fecha, String hora, String fechaInicio, St
 
     //El metodo generarCodc usa el metodo substring para tomar una subcadena de las distintas variables de la clase Concurso y generar un codigo
     public String generarCodC(String nombre, String fecha, String hora, String fechaInicio, String fechaCierre, Ciudad ciudad, String lugar, ArrayList<Premio> premios){
-        String codigo=nombre.substring(0,1)+fecha.charAt(0)+hora.substring(0,1)+fechaInicio.substring(0,1)+fechaCierre.substring(0,1)+ciudad.getNomCiudad().substring(0,1)+premios.get(0).getLugarPremio().substring(0,1)+nombre.substring(0,1)+lugar.substring(0,1)+lugar.substring(0,1);
+        String codigo=nombre.substring(0,1)+fecha.charAt(0)+hora.substring(0,1)+fechaInicio.substring(0,1)+fechaCierre.substring(0,1)+ciudad.getNombre().substring(0,1)+premios.get(0).getLugarPremio().substring(0,1)+nombre.substring(0,1)+lugar.substring(0,1)+lugar.substring(0,1);
         return codigo;
     }
 

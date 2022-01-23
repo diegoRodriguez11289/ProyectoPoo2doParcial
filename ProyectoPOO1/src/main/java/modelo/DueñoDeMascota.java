@@ -87,7 +87,7 @@ public class DueñoDeMascota  extends Persona implements Serializable{
   
 
   public String toString(){
-    return super.toString()+", apellidos: "+apellidos+", cedula: "+ ci;
+    return super.toString()+" "+apellidos;
 
   }
 
