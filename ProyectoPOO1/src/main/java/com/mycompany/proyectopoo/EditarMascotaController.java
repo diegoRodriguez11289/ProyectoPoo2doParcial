@@ -10,18 +10,21 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-
+import java.time.format.DateTimeFormatter;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import modelo.Mascota;
 import modelo.DueñoDeMascota;
+import modelo.TipoAnimal;
 /**
  * FXML Controller class
  *
@@ -30,29 +33,30 @@ import modelo.DueñoDeMascota;
 public class EditarMascotaController implements Initializable {
 
 
-    @FXML
-    private Label lbTitulo;
+
     @FXML
     private TextField txtNombre;
     @FXML
     private TextField txtRaza;
     @FXML
-    private TextField txtNacimiento;
+    private DatePicker txtNacimiento;
     @FXML
     private TextField txtTipo;
     @FXML
     private ComboBox cmbDueno;
+    @FXML
+    private CheckBox checkPerro;
+    @FXML
+    private CheckBox checkGato;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+       cmbDueno.getItems().setAll(DueñoDeMascota.cargarDuenos2(App.rutDuenos));
         // TODO
     } 
-    public void llenarCombo(ArrayList<DueñoDeMascota> mascotas) {
-        cmbDueno.getItems().setAll(mascotas);
-    }
     
     @FXML
     private void switchToAdministrar(ActionEvent event)throws IOException {
@@ -60,10 +64,11 @@ public class EditarMascotaController implements Initializable {
     }
     
     public void llenarCampos(Mascota e){
-        lbTitulo.setText("Editar Mascota");
+        //lbTitulo.setText("Editar Mascota");
         txtNombre.setText(e.getNombre());
         txtRaza.setText(e.getRaza());
-        cmbDueno.setValue(e.getDueno());
+        //cmbDueno.setValue(e.getDuenoNombre());
+       
 
         
         
@@ -71,13 +76,22 @@ public class EditarMascotaController implements Initializable {
     
     @FXML
     private void editarMascota() {
-        ArrayList<Mascota> mascotas = Mascota.cargarMascotas2(App.rutMascotas);//cargar la lista del archivo
+        ArrayList<Mascota> mascotas = Mascota.cargarMascotas(App.rutmascotascsv);//cargar la lista del archivo
         System.out.println("Guardando sus cambios");
         for (int x = 0; x < mascotas.size(); x++) {
             if (mascotas.get(x).getRaza().equals(txtRaza.getText())){
                 mascotas.get(x).setNombre(txtNombre.getText());
                 //Ciudad c= new Ciudad(cmbCiudad.getValue);
                 mascotas.get(x).setDueno((DueñoDeMascota)cmbDueno.getValue() );
+                String nacimiento = txtNacimiento.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+                mascotas.get(x).setNacimiento(nacimiento);
+                if(checkGato.isSelected()){
+                    mascotas.get(x).setTipo(TipoAnimal.GATO); 
+                }
+                if(checkPerro.isSelected()){
+                    mascotas.get(x).setTipo(TipoAnimal.PERRO); 
+                }
+                
             }
 
         }

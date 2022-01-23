@@ -51,8 +51,6 @@ public class AdministrarMascotasController implements Initializable {
     private TableColumn colDueno;
     @FXML
     private TableColumn colOp;
-    
-    private ObservableList<Mascota> mascota;
 
     /**
      * Initializes the controller class.
@@ -68,7 +66,7 @@ public class AdministrarMascotasController implements Initializable {
         this.colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.colTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
         this.colDueno.setCellValueFactory(new PropertyValueFactory<>("duenoNombre"));
-        //agregarOpciones();
+        agregarOpciones2();
         //mascota.addAll(Mascota.cargarMascotas(App.rutMascotas));
         //tvMascotas.setItems(mascota);
         tvMascotas.getItems().setAll(Mascota.cargarMascotas(App.rutmascotascsv));
@@ -80,7 +78,7 @@ public class AdministrarMascotasController implements Initializable {
     }   
     
 @FXML
-private void agregarOpciones() {
+private void agregarOpciones2() {
 
         Callback<TableColumn<Mascota, Void>, TableCell<Mascota, Void>> cellFactory = new Callback<TableColumn<Mascota, Void>, TableCell<Mascota, Void>>() {
             @Override
@@ -105,8 +103,12 @@ private void agregarOpciones() {
                             Button btnEl = new Button("Eliminar");
                             btnEl.setOnAction(e ->eliminarMascota(due));
                             
+                            //boton detalles
+                            Button btnDe = new Button("Detalles");
+                            btnEl.setOnAction(e ->detalleMascota(due));
+                            
                             //se agregan botones al hbox
-                            hbOpciones.getChildren().addAll(btnEd,btnEl);
+                            hbOpciones.getChildren().addAll(btnEd,btnEl,btnDe);
                             //se ubica hbox en la celda
                             setGraphic(hbOpciones);
                         }
@@ -119,19 +121,15 @@ private void agregarOpciones() {
         colOp.setCellFactory(cellFactory);
 
     }
-
+        @FXML
         private void editarMascota(Mascota e) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("EditarMascotas.fxml"));
-            
-
-            
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("EditarMascota"));         
+          
 
             VBox root = (VBox) fxmlLoader.load();
-            EditarMascotaController ct = fxmlLoader.getController();
-            
-            ct.llenarCombo(DueñoDeMascota.cargarDuenos(App.rutDuenoscsv));
-            ct.llenarCampos(e);
+            EditarMascotaController ct = fxmlLoader.getController();           
+             ct.llenarCampos(e);
             
             
             
@@ -178,6 +176,29 @@ private void agregarOpciones() {
         
     }
     
+        private void detalleMascota(Mascota e) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("DetalleMascota"));
+            
+
+            
+
+            VBox root = (VBox) fxmlLoader.load();
+            DetalleMascotaController dt = fxmlLoader.getController();
+            dt.llenarCampos(e);
+            
+            
+            
+            
+
+            
+            
+            App.changeRoot(root);
+            System.out.println("hola");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
     
   
     
@@ -209,8 +230,17 @@ private void agregarOpciones() {
         */
     }
     
+ /*
+    private void switchToEditarMascota(ActionEvent event) throws IOException {
+        Parent menuMascotasParent =  FXMLLoader.load(getClass().getResource("EditarMascota.fxml"));
+        Scene menuMascotas = new Scene(menuMascotasParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(menuMascotas);
+        window.show();
+        
+    }
     
-    
+   */ 
     
     
     

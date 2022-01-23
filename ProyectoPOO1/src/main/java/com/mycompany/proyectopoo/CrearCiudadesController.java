@@ -70,7 +70,6 @@ public class CrearCiudadesController implements Initializable {
         lbCod.setVisible(false);
         lbtxtprov.setVisible(false);
         txtProvincia.setVisible(false);
-        lbTitulo.setText("Editar Ciudad");
     }
     
     
