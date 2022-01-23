@@ -39,7 +39,7 @@
                   <Insets />
                </GridPane.margin>
             </Button>
-            <Button fx:id="botonMascotas" mnemonicParsing="false" onAction="#switchToAdministrarMascotas" onMouseClicked="#switchToAdministrarMascotas" prefHeight="25.0" prefWidth="132.0" text="Administrar mascotas" GridPane.rowIndex="2">
+            <Button fx:id="botonMascotas" mnemonicParsing="false" onAction="#switchToAdministrarMascotas" onMouseClicked="#switchToAdministrarMascotas" prefHeight="25.0" prefWidth="132.0" text="Administrar Mascotas" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>

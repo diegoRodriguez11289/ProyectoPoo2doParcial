@@ -7,7 +7,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proyectopoo.AdministrarMascotasController">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Administrar Mascotas" textAlignment="CENTER" wrappingWidth="599.6143493652344">
@@ -21,7 +20,7 @@
             <TableColumn fx:id="colNombre" prefWidth="161.59999084472656" text="Nombre" />
             <TableColumn fx:id="colTipo" prefWidth="81.60003662109375" text="Tipo" />
             <TableColumn fx:id="colDueno" prefWidth="104.79998779296875" text="Dueño" />
-            <TableColumn fx:id="colOP" prefWidth="139.99993896484375" text="Opciones" />
+            <TableColumn fx:id="colOp" prefWidth="139.99993896484375" text="Opciones" />
          </columns>
       </TableView>
       <Button mnemonicParsing="false" onAction="#switchToAgregarMascota" prefHeight="26.0" prefWidth="602.0" text="Agregar Mascotas" textAlignment="CENTER" />
